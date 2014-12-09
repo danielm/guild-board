@@ -1,0 +1,52 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+#footer .container-fluid .text-muted {
+  margin: 20px 0;
+}
+
+#guild-roaster th, #guild-roaster td{
+  text-align: center;
+}
+
+#guild-roaster th.left, #guild-roaster td.left{
+  text-align: left;
+}
+
+
+/*
+
+Death Knight #C41F3B
+Druid #FF7D0A
+Hunter #ABD473
+Mage #69CCF0
+Monk #00FF96
+Paladin #F58CBA
+Priest #FFFFFF
+Rogue #FFF569
+Shaman #0070DE
+Warlock #9482C9
+Warrior #C79C6E
+
+*/
