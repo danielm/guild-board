@@ -1,5 +1,14 @@
-<h1><%= settings.guild_name %> <small><%= settings.guild_realm %></small></h1>
-
+<div class="row">
+	<div class="col-xs-10">
+		<h1>PvE <small>Character Progression</small></h1>
+	</div>
+	<div class="col-xs-2" style="margin-bottom: 10px; margin-top: 20px;text-align:right;">
+		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#characterWindow">
+		  <span class="glyphicon glyphicon glyphicon-edit" aria-hidden="true"></span>
+		  Add New
+	    </button>
+	</div>
+</div>
 
 <table class="table table-bordered table-striped" id="guild-roaster">
   <colgroup>
@@ -32,7 +41,6 @@
 	  <th class="left">Name</th>
 	  <th>Role</th>
 	  <th>iLvl</th>
-	  <th>Ring</th>
 	  
 	  <th>Head</th>
 	  <th>Neck</th>
@@ -53,21 +61,16 @@
 	  
 	  <th>Heroics</th>
 	  
-	  <th>N</th>
-	  <th>H</th>
-	  <th>M</th>
+	  <th colspan="3">HM</th>
 	  
-	  <th>N</th>
-	  <th>H</th>
-	  <th>M</th>
+	  <th colspan="3">BRF</th>
 	</tr>
   </thead>
   <tbody>
 	<tr>
-	  <td class="left">Matadore</td>
+	  <td class="left"><a href="#">Matadore</a></td>
 	  <td class="">DPS</td>
 	  <td class="">632</td>
-	  <td class="">640</td>
 	  
 	  <td class="">600</td>
 	  <td class="">600</td>
@@ -100,4 +103,47 @@
 	
   </tbody>
 </table>
+
+
+<div class="modal fade" id="characterWindow" tabindex="-1" role="dialog" aria-labelledby="characterWindowLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="characterWindowLabel">Add New Character</h4>
+      </div>
+      <div class="modal-body">
+      
+		  <div class="form-group">
+			<label for="toonRegion">Region</label>
+			<select class="form-control" id="toonRegion">
+			  <option value="">Select</option>
+			  <option value="us.battle.net">US</option>
+			  <option value="eu.battle.net">Europe</option>
+			  <option value="kr.battle.net">Korea</option>
+			  <option value="tw.battle.net">Taiwan</option>
+			  <option value="www.battlenet.com.cn">China</option>
+			</select>
+		  </div>
+		  <div class="form-group">
+			<label for="toonRealm">Realm</label>
+			<input type="text" class="form-control" id="toonRealm" placeholder="">
+		  </div>
+		  <div class="form-group">
+			<label for="toonName">Name</label>
+			<input type="text" class="form-control" id="toonName" placeholder="Character Name">
+			<!--<p class="help-block">Example block-level help text her</p>-->
+		  </div>
+		  
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 

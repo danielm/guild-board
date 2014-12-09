@@ -38,11 +38,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="<%= link %>">Guilds Board</a>
+          <a class="navbar-brand" href="<%= link %>">WoW Panel</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="<%= current? %>"><a href="<%= link %>">Home</a></li>
+			<li class="<%= current? %>"><a href="<%= link %>">Home</a></li>
+            <li class="<%= current?('board/pve') %>"><a href="<%= link('board/pve') %>">PVE</a></li>
+            <li class="<%= current?('board/reps') %>"><a href="<%= link('board/reps') %>">Reps</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="<%= link 'pages/help' %>">Help</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -55,7 +60,7 @@
 
     <div id="footer">
       <div class="container-fluid">
-        <p class="text-muted">&copy; 2014</p>
+        <p class="text-muted">&copy; 2014. by <a href="http://daniel.uy/?ref=wow" target="_blank">daniel.uy</a></p>
       </div>
     </div>
 
@@ -65,11 +70,37 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-    <script type="text/javascript" src="<%= link 'js/app.main.js' %>"></script>
     
 <%= js_custom_files %>
 <%= js_custom %>
+
+<script>
+
+$('#toonRegion').on('change', function(){
+	var r = $(this).val();
+	
+	if (r == ''){
+	  return;
+	}
+	
+	$.getJSON('http://us.battle.net/api/wow/realm/status?jsonp=?', function(data){
+		console.log(data);
+	});
+});
+
+$('#characterWindow button.btn-primary').on('click', function(){
+	var region = $('#toonRegion').val();
+	var realm = $('#toonRealm').val();
+	var name = $('#toonName').val();
+	
+	var url = "http://" + region + "/api/wow/character/" + realm + "/" + name + "?fields=items,statistics,progression";
+	
+	$.getJSON(url + '&jsonp=?', function(data){
+		console.log(data);
+	});
+});
+
+</script>
 
   </body>
 </html>
